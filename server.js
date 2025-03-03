@@ -16,15 +16,7 @@ app.use(cookieparser());
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = [process.env.ADDRESS, "http://localhost:3000"];
-
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: process.env.ADDRESS,
     credentials: true,
   })
 );
