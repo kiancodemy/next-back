@@ -14,15 +14,24 @@ connect();
 const app = exprees();
 app.use(cookieparser());
 
+
+const allowedOrigins = [
+  "https://next-back-production-e3e4.up.railway.app",
+  "http://localhost:3000",
+];
+
 app.use(
   cors({
-    origin: "*",
-    methods: "GET, POST, PUT, DELETE",
-    allowedHeaders: "Content-Type, Authorization",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
-
 app.use(exprees.json());
 app.use(cookieparser());
 app.use(exprees.urlencoded({ extended: true }));
