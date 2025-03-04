@@ -14,9 +14,8 @@ connect();
 const app = exprees();
 app.use(cookieparser());
 
-
 const allowedOrigins = [
-  "https://next-back-production-e3e4.up.railway.app",
+  "https://next-pro-psi.vercel.app",
   "http://localhost:3000",
 ];
 
