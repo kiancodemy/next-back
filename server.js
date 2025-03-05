@@ -15,7 +15,7 @@ const app = exprees();
 app.use(cookieparser());
 
 const allowedOrigins = [
-  "https://nextjs-ecommerce-udiqalayh-kiancodemys-projects.vercel.app",
+  "https://nextjs-ecommerce-ashen-two.vercel.app",
   "http://localhost:3000",
 ];
 
